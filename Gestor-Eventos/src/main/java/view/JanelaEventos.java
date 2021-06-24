@@ -34,38 +34,29 @@ public class JanelaEventos extends JFrame{
         setContentPane(eventosPanel);
 
         pack();
-        /*
-        String[][] data = new String[Singleton.getInstance().dadosAplicacao.getEventos().size()][5];
-        int i =0;
-        for (Evento e: Singleton.getInstance().dadosAplicacao.getEventos()) {
-            String[] str = {e.getNome(), e.getDataInicio().toString()};
-            data[i] = str;
-            i++;
-        }
-        String column[]={"Nome","Data Inicio","Data Fim", "Local", "Pais"};
-        table = new JTable(data,column);*/
 
-        DefaultListModel<String> l1 = new DefaultListModel<>();
-        for (Evento e: Singleton.getInstance().dadosAplicacao.getEventos()) {
-            l1.addElement(e.toString());
-        }
-        list1.setModel(l1);
+        updateList();
 
         buttonVoltar.addActionListener(this::buttonVoltarActionPerformed);
         buttonCriarEvento.addActionListener(this::buttonCriarEventoActionPerformed);
     }
 
-    private void changed(ActionEvent evt){
-        this.dispose();
-        voltar.setVisible(true);
-    }
-
     private void buttonVoltarActionPerformed(ActionEvent evt){
         this.dispose();
         voltar.setVisible(true);
+        updateList();
     }
     private void buttonCriarEventoActionPerformed(ActionEvent evt){
         this.setVisible(false);
         new JanelaCriarEvento(this).setVisible(true);
+        updateList();
+    }
+
+    private void updateList(){
+        DefaultListModel<String> l1 = new DefaultListModel<>();
+        for (Evento e: Singleton.getInstance().dadosAplicacao.getEventos()) {
+            l1.addElement(e.toString());
+        }
+        list1.setModel(l1);
     }
 }
