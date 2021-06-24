@@ -10,6 +10,7 @@ public class DadosAplicacao implements Serializable{
     private LinkedList<Evento> eventos;
 
     public DadosAplicacao(){
+        eventos = new LinkedList<>();
         lerRecordesDoDisco();
     }
 
@@ -48,12 +49,21 @@ public class DadosAplicacao implements Serializable{
         return eventos;
     }
 
+    /**
+     * 2181218
+     * adds an event to the list of events, if the event is not null and if it is not in the list of events already
+     */
     public void adicionarEvento(Evento evento){
         if(!eventos.contains(evento) && evento != null){
             eventos.add(evento);
         }
     }
 
+
+    /**
+     * 2181218
+     * If a certain event exists it will remove it from the list of events
+     */
     public void removerEvento(Evento evento){
         if(eventos.contains(evento)){
             eventos.remove(evento);
