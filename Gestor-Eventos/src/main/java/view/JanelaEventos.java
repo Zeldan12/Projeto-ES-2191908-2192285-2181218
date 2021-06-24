@@ -8,7 +8,6 @@ import java.awt.event.ActionEvent;
 
 
 /**
- * 2181218
  * JanelaEventos, Janela para gerir eventos
  * Options: Criar Evento, Editar Evento, Eliminar Evento, Adicionar prova ao evento, Remover prova do evento
  */

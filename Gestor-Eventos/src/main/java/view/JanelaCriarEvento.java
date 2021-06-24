@@ -9,7 +9,6 @@ import java.time.LocalDate;
 
 
 /**
- * 2181218
  * JanelaCriarEvento, Janela com campos para o utilizador criar um evento
  */
 public class JanelaCriarEvento extends JFrame{
@@ -37,7 +36,6 @@ public class JanelaCriarEvento extends JFrame{
     }
 
     /**
-     * 2181218
      * creates event and saves it to dadosAplicacao, shows error messages if necessary
      */
     private void buttonConfirmarActionPerformed(ActionEvent event) {
