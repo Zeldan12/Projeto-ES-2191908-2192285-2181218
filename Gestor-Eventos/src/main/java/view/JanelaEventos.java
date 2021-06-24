@@ -39,8 +39,11 @@ public class JanelaEventos extends JFrame{
 
         buttonVoltar.addActionListener(this::buttonVoltarActionPerformed);
         buttonCriarEvento.addActionListener(this::buttonCriarEventoActionPerformed);
-        buttonEditarEvento.addActionListener(this::buttonEventoEventoActionPerformed);
+        buttonEditarEvento.addActionListener(this::buttonEditarEventoActionPerformed);
+        buttonEliminar.addActionListener(this::buttonEliminarEventoActionPerformed);
     }
+
+
 
     public void buttonVoltarActionPerformed(ActionEvent evt){
         this.dispose();
@@ -51,11 +54,22 @@ public class JanelaEventos extends JFrame{
         new JanelaCriarEvento(this).setVisible(true);
     }
 
-    private void buttonEventoEventoActionPerformed(ActionEvent evt){
+    private void buttonEditarEventoActionPerformed(ActionEvent evt){
         this.setVisible(false);
         Evento e = getSelectedEvent();
         if(e != null){
             new JanelaEditarEvento(this,e).setVisible(true);
+        }
+        else{
+            ErrorMessage.show("Erro","Nenhum evento está selecionado");
+        }
+    }
+
+    private void buttonEliminarEventoActionPerformed(ActionEvent event) {
+        Evento e = getSelectedEvent();
+        if(e != null){
+            JanelaConfirmarEliminarEvento.show(e);
+            updateList();
         }
         else{
             ErrorMessage.show("Erro","Nenhum evento está selecionado");
