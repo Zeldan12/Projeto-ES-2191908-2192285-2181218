@@ -1,11 +1,18 @@
 package model;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.time.LocalDate;
 import java.util.LinkedList;
 
-public class Etapa {
+public class  Etapa<T> {
 
-    private Calendario diaAno;
+    @Getter@Setter
+    private LocalDate diaAno;
+    @Getter@Setter
     private int diaCompeticao;
-    private LinkedList<Atleta> atletas;
+    private Atleta[] atletas;
+    private T[] resultados;
 
 }

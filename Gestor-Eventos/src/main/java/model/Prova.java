@@ -15,15 +15,17 @@ public class Prova {
     private double minimos;
     @Getter
     private LinkedList<Etapa> eliminatorias;
+    @Getter
     private Etapa etapaFinal;
     @Getter
     private LinkedList<Atleta> atletas;
-
     @Getter@Setter
     private Evento evento;
+    @Getter@Setter
+    private Genero genero;
 
-    public Prova(String nome, double minimos, Evento evento){
-        this(nome, minimos, new LinkedList<Etapa>(), new Etapa(), new LinkedList<>(), evento);
+    public Prova(String nome, double minimos, Genero genero, Evento evento){
+        this(nome, minimos, new LinkedList<Etapa>(), new Etapa(), new LinkedList<>(), evento, genero);
     }
 
     public Etapa addEtapa(Etapa etapa){
@@ -46,12 +48,4 @@ public class Prova {
         return null;
     }
 
-    private void atualizarCalendarioEtapas(){
-
-        return;
-    }
-
-    private void limparCalendarioEtapas(){
-
-    }
 }

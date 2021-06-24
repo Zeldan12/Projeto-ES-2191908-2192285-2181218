@@ -17,7 +17,7 @@ public class DadosAplicacao implements Serializable{
     private void guardarRecordesDisco() {
         ObjectOutputStream oos = null;
         try {
-            File f = new File(System.getProperty("user.home") + File.separator + "atletas.dados");
+            File f = new File(System.getProperty("user.home") + File.separator + "gestor-eventos.dados");
             oos = new ObjectOutputStream(new FileOutputStream(f));
             oos.writeObject(this);
             oos.close();
@@ -29,7 +29,7 @@ public class DadosAplicacao implements Serializable{
     private void lerRecordesDoDisco() {
         ObjectInputStream ois = null;
         File f = new
-                File(System.getProperty("user.home")+File.separator+"minesfinder.recordes");
+                File(System.getProperty("user.home")+File.separator+"gestor-eventos.dados");
         if (f.canRead()) {
             try {
                 ois = new ObjectInputStream(new FileInputStream(f));
