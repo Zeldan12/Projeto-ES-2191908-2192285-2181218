@@ -20,10 +20,10 @@ public class JanelaEventos extends JFrame{
     private JButton buttonCriarEvento;
     private JButton buttonVoltar;
     private JPanel eventosPanel;
-    private JButton button1;
-    private JButton button2;
+    private JButton buttonEditarEvento;
+    private JButton buttonEliminar;
     private JButton importButton;
-    private JTable table;
+    private JList list1;
     private JFrame voltar;
 
     public JanelaEventos(JFrame anterior){
@@ -45,16 +45,20 @@ public class JanelaEventos extends JFrame{
         String column[]={"Nome","Data Inicio","Data Fim", "Local", "Pais"};
         table = new JTable(data,column);*/
 
-
-        String data[][]={ {"101","Amit","670000"},
-                {"102","Jai","780000"},
-                {"101","Sachin","700000"}};
-        String column[]={"ID","NAME","SALARY"};
-        JTable table=new JTable(data,column);
-        table.setBounds(30,40,200,300);
+        DefaultListModel<String> l1 = new DefaultListModel<>();
+        for (Evento e: Singleton.getInstance().dadosAplicacao.getEventos()) {
+            l1.addElement(e.toString());
+        }
+        list1.setModel(l1);
 
         buttonVoltar.addActionListener(this::buttonVoltarActionPerformed);
         buttonCriarEvento.addActionListener(this::buttonCriarEventoActionPerformed);
+        this.addComponentListener(this::changed);
+    }
+
+    private void changed(ActionEvent evt){
+        this.dispose();
+        voltar.setVisible(true);
     }
 
     private void buttonVoltarActionPerformed(ActionEvent evt){

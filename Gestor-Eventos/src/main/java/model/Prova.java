@@ -23,11 +23,10 @@ public class Prova {
     private Evento evento;
 
     public Prova(String nome, double minimos, Evento evento){
-        this(nome, minimos, new LinkedList<Etapa>(), new Etapa(), new LinkedList<>(), evento);
+        this(nome, minimos, new LinkedList<Etapa>(), null, new LinkedList<>(), evento);
     }
 
     public Etapa addEtapa(Etapa etapa){
-        //TODO
         return null;
     }
 
@@ -36,7 +35,7 @@ public class Prova {
         return null;
     }
 
-    public Atleta addAtleta(Atleta atleta){
+    public Atleta inscreverAtleta(Atleta atleta){
         //TODO
         return null;
     }
@@ -46,12 +45,5 @@ public class Prova {
         return null;
     }
 
-    private void atualizarCalendarioEtapas(){
 
-        return;
-    }
-
-    private void limparCalendarioEtapas(){
-
-    }
 }

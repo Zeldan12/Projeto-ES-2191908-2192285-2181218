@@ -48,5 +48,8 @@ public class Evento {
         return null;
     }
 
-
+    @Override
+    public String toString() {
+        return nome + '{' + dataInicio +" -> " + dataFim + "}  @" + local + ",   " + pais;
+    }
 }
