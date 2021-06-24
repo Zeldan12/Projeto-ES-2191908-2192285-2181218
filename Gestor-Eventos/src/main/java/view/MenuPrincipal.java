@@ -25,6 +25,7 @@ public class MenuPrincipal extends JFrame{
         buttonRecordes.addActionListener(this::buttonRecordesActionPerformed);
         buttonProvas.addActionListener(this::buttonProvasActionPerformed);
         buttonEventos.addActionListener(this::buttonEventosActionPerformed);
+        buttonAtletas.addActionListener(this::buttonAtletasActionPerformed);
     }
 
     public static void main(String[] args) {
@@ -49,6 +50,12 @@ public class MenuPrincipal extends JFrame{
         this.setVisible(false);
         new JanelaEventos(this).setVisible(true);
     }
+
+    private void buttonAtletasActionPerformed(ActionEvent event){
+        this.setVisible(false);
+        new JanelaAtletas(this).setVisible(true);
+    }
+
 
     static class SaveOnExit extends Thread {
 
