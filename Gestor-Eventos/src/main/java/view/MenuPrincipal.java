@@ -18,7 +18,7 @@ public class MenuPrincipal extends JFrame{
         super("Menu Principal");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setContentPane(mainPanel);
-
+        new DadosAplicacao();
         pack();
 
         buttonSair.addActionListener(this::buttonSairActionPerformed);
@@ -28,6 +28,7 @@ public class MenuPrincipal extends JFrame{
     }
 
     public static void main(String[] args) {
+        Runtime.getRuntime().addShutdownHook(new SaveOnExit());
         new MenuPrincipal().setVisible(true);
     }
 
@@ -47,6 +48,13 @@ public class MenuPrincipal extends JFrame{
     private void buttonEventosActionPerformed(ActionEvent event) {
         this.setVisible(false);
         new JanelaEventos(this).setVisible(true);
+    }
+
+    static class SaveOnExit extends Thread {
+
+        public void run() {
+            DadosAplicacao.salvarDadosAplicacao();
+        }
     }
 
 }

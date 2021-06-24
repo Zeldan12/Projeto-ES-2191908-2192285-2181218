@@ -1,14 +1,10 @@
 package view;
 
+import model.DadosAplicacao;
 import model.Evento;
-import model.Singleton;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import java.awt.event.ActionEvent;
-import java.util.LinkedList;
-import java.util.List;
 
 
 /**
@@ -78,7 +74,7 @@ public class JanelaEventos extends JFrame{
 
     private void updateList(){
         DefaultListModel<String> l1 = new DefaultListModel<>();
-        for (Evento e: Singleton.getInstance().dadosAplicacao.getEventos()) {
+        for (Evento e: DadosAplicacao.getEventos()) {
             l1.addElement(e.toString());
         }
         list1.setModel(l1);
@@ -86,7 +82,7 @@ public class JanelaEventos extends JFrame{
 
 
     private Evento getSelectedEvent(){
-        for (Evento e : Singleton.getInstance().dadosAplicacao.getEventos()) {
+        for (Evento e : DadosAplicacao.getEventos()) {
             if(e.toString().equals(list1.getSelectedValue().toString())){
                 return e;
             }

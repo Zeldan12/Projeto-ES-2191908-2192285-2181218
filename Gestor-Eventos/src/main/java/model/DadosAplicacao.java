@@ -7,36 +7,35 @@ import java.util.logging.Logger;
 
 public class DadosAplicacao implements Serializable{
 
-    private LinkedList<Evento> eventos;
+    private static LinkedList<Evento> eventos;
 
     public DadosAplicacao(){
         eventos = new LinkedList<>();
-        lerRecordesDoDisco();
+        lerDadosAplicacao();
     }
 
-    private void guardarRecordesDisco() {
+    public static void salvarDadosAplicacao() {
         ObjectOutputStream oos = null;
         try {
             File f = new File(System.getProperty("user.home") + File.separator + "atletas.dados");
             oos = new ObjectOutputStream(new FileOutputStream(f));
-            oos.writeObject(this);
+            oos.writeObject(eventos);
             oos.close();
         } catch (IOException ex) {
             Logger.getLogger(DadosAplicacao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    private void lerRecordesDoDisco() {
+    public static void lerDadosAplicacao() {
         ObjectInputStream ois = null;
         File f = new
-                File(System.getProperty("user.home")+File.separator+"minesfinder.recordes");
+                File(System.getProperty("user.home")+File.separator+"atletas.dados");
         if (f.canRead()) {
             try {
                 ois = new ObjectInputStream(new FileInputStream(f));
                 DadosAplicacao temp;
-                temp = (DadosAplicacao) ois.readObject();
+                eventos = (LinkedList<Evento>) ois.readObject();
                 ois.close();
-                Singleton.getInstance().dadosAplicacao = temp;
             } catch (IOException ex) {
                 Logger.getLogger(DadosAplicacao.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
@@ -45,7 +44,7 @@ public class DadosAplicacao implements Serializable{
         }
     }
 
-    public LinkedList<Evento> getEventos() {
+    public static LinkedList<Evento> getEventos() {
         return eventos;
     }
 
@@ -53,7 +52,7 @@ public class DadosAplicacao implements Serializable{
      * 2181218
      * adds an event to the list of events, if the event is not null and if it is not in the list of events already
      */
-    public void adicionarEvento(Evento evento){
+    public static void adicionarEvento(Evento evento){
         if(!eventos.contains(evento) && evento != null){
             eventos.add(evento);
         }
@@ -64,7 +63,7 @@ public class DadosAplicacao implements Serializable{
      * 2181218
      * If a certain event exists it will remove it from the list of events
      */
-    public void removerEvento(Evento evento){
+    public static void removerEvento(Evento evento){
         if(eventos.contains(evento)){
             eventos.remove(evento);
         }

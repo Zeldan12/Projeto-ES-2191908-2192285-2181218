@@ -2,14 +2,10 @@ package view;
 
 import model.DadosAplicacao;
 import model.Evento;
-import model.Singleton;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.concurrent.atomic.DoubleAccumulator;
 
 
 /**
@@ -49,7 +45,7 @@ public class JanelaCriarEvento extends JFrame{
             Evento tempEvento = new Evento(textFieldNomeEvento.getText(), LocalDate.parse(textFieldDataInicio.getText()), LocalDate.parse(textFieldDataFim.getText()),textFieldLocal.getText(),textFieldPais.getText());
             String s = tempEvento.isValid();
             if(s == null){
-                Singleton.getInstance().dadosAplicacao.adicionarEvento(tempEvento);
+                DadosAplicacao.adicionarEvento(tempEvento);
             }else{
                 ErrorMessage.show("Error", s);
             }

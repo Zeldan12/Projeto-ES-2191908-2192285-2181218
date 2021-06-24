@@ -1,7 +1,7 @@
 package view;
 
+import model.DadosAplicacao;
 import model.Evento;
-import model.Singleton;
 
 import javax.swing.*;
 import java.awt.event.*;
@@ -48,7 +48,7 @@ public class JanelaConfirmarEliminarEvento extends JDialog {
     }
 
     private void onOK(Evento e) {
-        Singleton.getInstance().dadosAplicacao.removerEvento(e);
+        DadosAplicacao.removerEvento(e);
         dispose();
     }
 
