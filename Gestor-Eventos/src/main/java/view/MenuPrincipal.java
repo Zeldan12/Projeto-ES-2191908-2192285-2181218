@@ -21,6 +21,7 @@ public class MenuPrincipal extends JFrame{
         buttonSair.addActionListener(this::buttonSairActionPerformed);
         buttonRecordes.addActionListener(this::buttonRecordesActionPerformed);
         buttonProvas.addActionListener(this::buttonProvasActionPerformed);
+        buttonEventos.addActionListener(this::buttonEventosActionPerformed);
     }
 
     public static void main(String[] args) {
@@ -39,4 +40,10 @@ public class MenuPrincipal extends JFrame{
         this.setVisible(false);
         new JanelaRecordes(this).setVisible(true);
     }
+
+    private void buttonEventosActionPerformed(ActionEvent event) {
+        this.setVisible(false);
+        new JanelaEventos(this).setVisible(true);
+    }
+
 }
