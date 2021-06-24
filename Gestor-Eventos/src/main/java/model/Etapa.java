@@ -27,6 +27,7 @@ public class Etapa<T> {
     @Getter @Setter
     private double[] resultados;
 
+    public Etapa(){}
 
     public Etapa(LocalDate diaAno, int diaCompeticao, int hora, Genero genero) {
         this.diaAno = diaAno;

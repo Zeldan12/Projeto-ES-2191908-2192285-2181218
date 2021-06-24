@@ -1,9 +1,13 @@
 package view;
 
 import model.DadosAplicacao;
+import model.Evento;
+import model.Prova;
+import model.Singleton;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.util.LinkedList;
 
 public class MenuPrincipal extends JFrame{
     private JButton buttonEventos;
@@ -36,7 +40,14 @@ public class MenuPrincipal extends JFrame{
     }
 
     private void buttonProvasActionPerformed(ActionEvent evt){
-        return;
+        this.setVisible(false);
+        LinkedList<Prova> provas = new LinkedList<>();
+        for(Evento e : Singleton.getInstance().dadosAplicacao.getEventos()){
+            for(Prova p : e.getProvas()){
+                provas.add(p);
+            }
+        }
+        new JanelaProvas(this, provas).setVisible(true);
     }
 
     private void buttonRecordesActionPerformed(ActionEvent evt){

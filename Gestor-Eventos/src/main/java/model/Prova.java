@@ -2,6 +2,7 @@ package model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
 
 import java.util.LinkedList;
@@ -28,17 +29,8 @@ public class Prova {
         this(nome, minimos, new LinkedList<Etapa>(), new Etapa(), new LinkedList<>(), evento, genero);
     }
 
-    public Etapa addEtapa(Etapa etapa){
-        return null;
-    }
-
-    public Etapa removeEtapa(Etapa etapa){
-        //TODO
-        return null;
-    }
-
-    public Atleta inscreverAtleta(Atleta atleta){
-        //TODO
+    public Atleta inscreverAtleta(@NonNull Atleta atleta){
+        atletas.add(atleta);
         return null;
     }
 

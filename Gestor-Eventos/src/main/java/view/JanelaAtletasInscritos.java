@@ -1,6 +1,7 @@
 package view;
 
 import model.Atleta;
+import model.Prova;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -11,6 +12,7 @@ public class JanelaAtletasInscritos extends JFrame{
     private JButton voltarButton;
     private JButton adicionarButton;
     private JButton removerButton;
+    private JList listAtletas;
     private JFrame anterior;
     private LinkedList<Atleta> atletas;
 
@@ -21,9 +23,9 @@ public class JanelaAtletasInscritos extends JFrame{
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setContentPane(mainPanel);
 
-        //Mostrar a lista dos atletas
-
         pack();
+
+        updateList();
 
         voltarButton.addActionListener(this::buttonVoltarActionPerformed);
     }
@@ -31,5 +33,24 @@ public class JanelaAtletasInscritos extends JFrame{
     private void buttonVoltarActionPerformed(ActionEvent evt) {
         this.dispose();
         anterior.setVisible(true);
+    }
+
+    private void updateList(){
+
+        DefaultListModel<String> l1 = new DefaultListModel<>();
+        for (Atleta a: atletas) {
+                l1.addElement(a.toString());
+        }
+
+        listAtletas.setModel(l1);
+    }
+
+    private Atleta getSelectedEvent(){
+        for (Atleta a: atletas) {
+            if(a.toString().equals(listAtletas.getSelectedValue().toString())){
+                return a;
+            }
+        }
+        return null;
     }
 }

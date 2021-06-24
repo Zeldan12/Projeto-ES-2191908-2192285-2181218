@@ -1,9 +1,11 @@
 package view;
 
+import model.Etapa;
 import model.Prova;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.util.LinkedList;
 
 public class JanelaProva extends JFrame {
     private JButton calendarioButton;
@@ -28,10 +30,10 @@ public class JanelaProva extends JFrame {
 
         pack();
 
-        labelNome.setText( prova.getNome());
-        labelSexo.setText( prova.getGenero().name());
-        labelMinimos.setText( prova.getNome());
-        labelEstado.setText( prova.getNome());
+        labelNome.setText(prova.getNome());
+        labelSexo.setText(prova.getGenero().name());
+        labelMinimos.setText(prova.getNome());
+        labelEstado.setText(prova.getNome());
 
 
         calendarioButton.addActionListener(this::buttonCalendarioActionPerformed);
@@ -60,10 +62,9 @@ public class JanelaProva extends JFrame {
 
     }
 
-
     private void buttonCalendarioActionPerformed(ActionEvent evt) {
         setVisible(false);
-        new JanelaCalendarioProva(this);
+        new JanelaCalendarioProva(this, prova);
     }
 
 }
