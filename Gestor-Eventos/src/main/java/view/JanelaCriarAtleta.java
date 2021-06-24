@@ -3,43 +3,48 @@ package view;
 import model.DadosAplicacao;
 import model.Evento;
 
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.time.LocalDate;
 
-
-/**
- * JanelaCriarEvento, Janela com campos para o utilizador criar um evento
- */
-public class JanelaCriarEvento extends JFrame{
-    private JButton buttonConfirmar;
-    private JButton buttonCancelar;
+public class JanelaCriarAtleta extends JFrame {
+    private JPanel content;
     private JTextField textFieldNomeEvento;
     private JTextField textFieldPais;
     private JTextField textFieldDataInicio;
-    private JTextField textFieldDataFim;
     private JTextField textFieldLocal;
-    private JPanel content;
-    private JanelaEventos voltar;
+    private JButton buttonConfirmar;
+    private JButton buttonCancelar;
+    private JRadioButton sexoRadio;
+    private JRadioButton femininoRadio;
+    private JPanel criarAtletaPanel;
+    private JFrame voltar;
 
-    public JanelaCriarEvento(JanelaEventos anterior){
-        super("Eventos");
+    public JanelaCriarAtleta (JFrame anterior){
+        super("Criar atleta");
 
         voltar = anterior;
+
+
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setContentPane(content);
+        setContentPane(criarAtletaPanel);
 
         pack();
 
+        //updateList();
+
+
         buttonCancelar.addActionListener(this::buttonCancelarActionPerformed);
         buttonConfirmar.addActionListener(this::buttonConfirmarActionPerformed);
+
     }
 
-    /**
-     * creates event and saves it to dadosAplicacao, shows error messages if necessary
-     */
     private void buttonConfirmarActionPerformed(ActionEvent event) {
+
+        /*
         try {
+
             Evento tempEvento = new Evento(textFieldNomeEvento.getText(), LocalDate.parse(textFieldDataInicio.getText()), LocalDate.parse(textFieldDataFim.getText()),textFieldLocal.getText(),textFieldPais.getText());
             String s = tempEvento.isValid();
             if(s == null){
@@ -50,8 +55,14 @@ public class JanelaCriarEvento extends JFrame{
         }catch(Exception e){
             ErrorMessage.show("Error", e.getMessage());
         }
+
+        */
+
+
+
         this.dispose();
-        voltar.buttonVoltarActionPerformed(event);
+
+
     }
 
     private void buttonCancelarActionPerformed(ActionEvent event) {

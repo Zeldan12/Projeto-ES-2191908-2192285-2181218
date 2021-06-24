@@ -4,11 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.LinkedList;
 
 @AllArgsConstructor
-public class Evento {
+public class Evento implements Serializable {
 
     @Getter@Setter
     private String nome;

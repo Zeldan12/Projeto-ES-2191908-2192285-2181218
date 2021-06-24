@@ -26,7 +26,7 @@ public class Prova {
     private Genero genero;
 
     public Prova(String nome, double minimos, Genero genero, Evento evento){
-        this(nome, minimos, new LinkedList<Etapa>(), new Etapa(), new LinkedList<>(), evento, genero);
+        this(nome, minimos, new LinkedList<Etapa>(), null, new LinkedList<>(), evento, genero);
     }
 
     public Atleta inscreverAtleta(@NonNull Atleta atleta){

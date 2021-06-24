@@ -1,7 +1,7 @@
 package view;
 
+import model.DadosAplicacao;
 import model.Evento;
-import model.Singleton;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -55,13 +55,13 @@ public class JanelaEditarEvento extends JFrame{
             Evento tempEvento = new Evento(textFieldNomeEvento.getText(), LocalDate.parse(textFieldDataInicio.getText()), LocalDate.parse(textFieldDataFim.getText()),textFieldLocal.getText(),textFieldPais.getText());
             String s = tempEvento.isValid();
             if(s == null){
-                Singleton.getInstance().dadosAplicacao.removerEvento(evento);
+                DadosAplicacao.removerEvento(evento);
                 evento.setNome(tempEvento.getNome());
                 evento.setDataInicio(tempEvento.getDataInicio());
                 evento.setDataFim(tempEvento.getDataFim());
                 evento.setLocal(tempEvento.getLocal());
                 evento.setPais(tempEvento.getPais());
-                Singleton.getInstance().dadosAplicacao.adicionarEvento(evento);
+                DadosAplicacao.adicionarEvento(evento);
             }else{
                 ErrorMessage.show("Error", s);
             }
