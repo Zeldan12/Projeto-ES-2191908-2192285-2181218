@@ -19,8 +19,11 @@ public class Prova {
     @Getter
     private LinkedList<Atleta> atletas;
 
-    public Prova(String nome, double minimos){
-        this(nome, minimos, new LinkedList<>(), new Etapa(), new LinkedList<>());
+    @Getter@Setter
+    private Evento evento;
+
+    public Prova(String nome, double minimos, Evento evento){
+        this(nome, minimos, new LinkedList<Etapa>(), new Etapa(), new LinkedList<>(), evento);
     }
 
     public Etapa addEtapa(Etapa etapa){

@@ -17,8 +17,6 @@ public class Evento {
     @Getter@Setter
     private LocalDate dataFim;
     @Getter@Setter
-    private Calendario calendario;
-    @Getter@Setter
     private String local;
     @Getter@Setter
     private String pais;
@@ -26,7 +24,7 @@ public class Evento {
     private LinkedList<Prova> provas;
 
     public Evento(String nome, LocalDate dataInicio, LocalDate dataFim, String local, String pais) {
-        this(nome, dataInicio, dataFim, new Calendario(), local, pais, new LinkedList<>());
+        this(nome, dataInicio, dataFim, local, pais, new LinkedList<>());
     }
 
     //adds a prova to the list of provas, if the prova is not null and if it is not in the list already
@@ -38,8 +36,9 @@ public class Evento {
 
     //If a certain prova exists it will remove it from the list
     public Prova removeProva(Prova prova){
-        if(!provas.contains(prova) && prova != null){
-            provas.add(prova);
+        if(provas.contains(prova) && prova != null){
+            provas.remove(prova);
+            prova.setEvento(null);
         }
         return prova;
     }
