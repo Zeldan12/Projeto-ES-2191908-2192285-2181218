@@ -17,7 +17,7 @@ public class DadosAplicacao implements Serializable{
     public static void salvarDadosAplicacao() {
         ObjectOutputStream oos = null;
         try {
-            File f = new File(System.getProperty("user.home") + File.separator + "atletas.dados");
+            File f = new File(System.getProperty("user.home") + File.separator + "gestor-eventos.dados");
             oos = new ObjectOutputStream(new FileOutputStream(f));
             oos.writeObject(eventos);
             oos.close();
@@ -28,8 +28,7 @@ public class DadosAplicacao implements Serializable{
 
     public static void lerDadosAplicacao() {
         ObjectInputStream ois = null;
-        File f = new
-                File(System.getProperty("user.home")+File.separator+"atletas.dados");
+        File f = new File(System.getProperty("user.home")+File.separator+"gestor-eventos.dados");
         if (f.canRead()) {
             try {
                 ois = new ObjectInputStream(new FileInputStream(f));

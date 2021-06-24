@@ -1,19 +1,27 @@
 package view;
 
+import model.Atleta;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.util.LinkedList;
 
-public class JanelaCalendarioProva extends JFrame{
-    private JTable tableCalendario;
-    private JButton voltarButton;
+public class JanelaAtletasInscritos extends JFrame{
     private JPanel mainPanel;
+    private JButton voltarButton;
+    private JButton adicionarButton;
+    private JButton removerButton;
     private JFrame anterior;
+    private LinkedList<Atleta> atletas;
 
-    public JanelaCalendarioProva(JFrame anterior){
-        super("Calendario Prova");
+    public JanelaAtletasInscritos(JFrame anterior, LinkedList<Atleta> atletas){
+        super("Prova");
         this.anterior = anterior;
+        this.atletas = atletas;
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setContentPane(mainPanel);
+
+        //Mostrar a lista dos atletas
 
         pack();
 
