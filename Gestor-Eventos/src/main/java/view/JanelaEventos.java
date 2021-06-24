@@ -39,6 +39,7 @@ public class JanelaEventos extends JFrame{
 
         buttonVoltar.addActionListener(this::buttonVoltarActionPerformed);
         buttonCriarEvento.addActionListener(this::buttonCriarEventoActionPerformed);
+        buttonEditarEvento.addActionListener(this::buttonEventoEventoActionPerformed);
     }
 
     public void buttonVoltarActionPerformed(ActionEvent evt){
@@ -50,6 +51,17 @@ public class JanelaEventos extends JFrame{
         new JanelaCriarEvento(this).setVisible(true);
     }
 
+    private void buttonEventoEventoActionPerformed(ActionEvent evt){
+        this.setVisible(false);
+        Evento e = getSelectedEvent();
+        if(e != null){
+            new JanelaEditarEvento(this,e).setVisible(true);
+        }
+        else{
+            ErrorMessage.show("Erro","Nenhum evento está selecionado");
+        }
+    }
+
     private void updateList(){
         DefaultListModel<String> l1 = new DefaultListModel<>();
         for (Evento e: Singleton.getInstance().dadosAplicacao.getEventos()) {
@@ -58,5 +70,14 @@ public class JanelaEventos extends JFrame{
         list1.setModel(l1);
     }
 
+
+    private Evento getSelectedEvent(){
+        for (Evento e : Singleton.getInstance().dadosAplicacao.getEventos()) {
+            if(e.toString().equals(list1.getSelectedValue().toString())){
+                return e;
+            }
+        }
+        return null;
+    }
 
 }
