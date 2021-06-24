@@ -20,11 +20,11 @@ public class JanelaEventos extends JFrame{
     private JButton buttonCriarEvento;
     private JButton buttonVoltar;
     private JPanel eventosPanel;
-    private JButton button1;
-    private JButton button2;
+    private JButton buttonEditarEvento;
+    private JButton buttonEliminar;
     private JButton importButton;
-    private JTable table;
-    private JFrame voltar;
+    private JList list1;
+    public JFrame voltar;
 
     public JanelaEventos(JFrame anterior){
         super("Eventos");
@@ -34,30 +34,15 @@ public class JanelaEventos extends JFrame{
         setContentPane(eventosPanel);
 
         pack();
-        /*
-        String[][] data = new String[Singleton.getInstance().dadosAplicacao.getEventos().size()][5];
-        int i =0;
-        for (Evento e: Singleton.getInstance().dadosAplicacao.getEventos()) {
-            String[] str = {e.getNome(), e.getDataInicio().toString()};
-            data[i] = str;
-            i++;
-        }
-        String column[]={"Nome","Data Inicio","Data Fim", "Local", "Pais"};
-        table = new JTable(data,column);*/
 
-
-        String data[][]={ {"101","Amit","670000"},
-                {"102","Jai","780000"},
-                {"101","Sachin","700000"}};
-        String column[]={"ID","NAME","SALARY"};
-        JTable table=new JTable(data,column);
-        table.setBounds(30,40,200,300);
+        updateList();
 
         buttonVoltar.addActionListener(this::buttonVoltarActionPerformed);
         buttonCriarEvento.addActionListener(this::buttonCriarEventoActionPerformed);
+        buttonEditarEvento.addActionListener(this::buttonEventoEventoActionPerformed);
     }
 
-    private void buttonVoltarActionPerformed(ActionEvent evt){
+    public void buttonVoltarActionPerformed(ActionEvent evt){
         this.dispose();
         voltar.setVisible(true);
     }
@@ -65,4 +50,34 @@ public class JanelaEventos extends JFrame{
         this.setVisible(false);
         new JanelaCriarEvento(this).setVisible(true);
     }
+
+    private void buttonEventoEventoActionPerformed(ActionEvent evt){
+        this.setVisible(false);
+        Evento e = getSelectedEvent();
+        if(e != null){
+            new JanelaEditarEvento(this,e).setVisible(true);
+        }
+        else{
+            ErrorMessage.show("Erro","Nenhum evento está selecionado");
+        }
+    }
+
+    private void updateList(){
+        DefaultListModel<String> l1 = new DefaultListModel<>();
+        for (Evento e: Singleton.getInstance().dadosAplicacao.getEventos()) {
+            l1.addElement(e.toString());
+        }
+        list1.setModel(l1);
+    }
+
+
+    private Evento getSelectedEvent(){
+        for (Evento e : Singleton.getInstance().dadosAplicacao.getEventos()) {
+            if(e.toString().equals(list1.getSelectedValue().toString())){
+                return e;
+            }
+        }
+        return null;
+    }
+
 }

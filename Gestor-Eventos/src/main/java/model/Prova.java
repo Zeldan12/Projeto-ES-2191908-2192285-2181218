@@ -29,7 +29,6 @@ public class Prova {
     }
 
     public Etapa addEtapa(Etapa etapa){
-        //TODO
         return null;
     }
 
@@ -38,7 +37,7 @@ public class Prova {
         return null;
     }
 
-    public Atleta addAtleta(Atleta atleta){
+    public Atleta inscreverAtleta(Atleta atleta){
         //TODO
         return null;
     }
