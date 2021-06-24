@@ -1,7 +1,15 @@
 package view;
 
+import model.DadosAplicacao;
+import model.Evento;
+import model.Singleton;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.concurrent.atomic.DoubleAccumulator;
 
 public class JanelaCriarEvento extends JFrame{
     private JButton buttonConfirmar;
@@ -23,12 +31,19 @@ public class JanelaCriarEvento extends JFrame{
 
         pack();
 
-        buttonConfirmar.addActionListener(this::buttonCancelarActionPerformed);
-        buttonCancelar.addActionListener(this::buttonConfirmarActionPerformed);
+        buttonCancelar.addActionListener(this::buttonCancelarActionPerformed);
+        buttonConfirmar.addActionListener(this::buttonConfirmarActionPerformed);
     }
 
     private void buttonConfirmarActionPerformed(ActionEvent event) {
-
+        try {
+            Evento tempEvento = new Evento(textFieldNomeEvento.getText(), LocalDate.parse(textFieldDataInicio.getText()), LocalDate.parse(textFieldDataFim.getText()),textFieldLocal.getText(),textFieldPais.getText());
+            if(tempEvento.isValid()){
+                Singleton.getInstance().dadosAplicacao.adicionarEvento(tempEvento);
+            }
+        }catch(Exception e){
+            ErrorMessage.show("Error", e.getMessage());
+        }
     }
 
     private void buttonCancelarActionPerformed(ActionEvent event) {

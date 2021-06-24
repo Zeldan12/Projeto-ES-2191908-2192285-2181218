@@ -1,5 +1,7 @@
 package view;
 
+import model.DadosAplicacao;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 
@@ -10,6 +12,7 @@ public class MenuPrincipal extends JFrame{
     private JButton buttonRecordes;
     private JButton buttonSair;
     private JPanel mainPanel;
+
 
     public MenuPrincipal() {
         super("Menu Principal");
