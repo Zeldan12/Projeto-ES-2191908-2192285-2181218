@@ -53,7 +53,6 @@ public class JanelaEventos extends JFrame{
 
         buttonVoltar.addActionListener(this::buttonVoltarActionPerformed);
         buttonCriarEvento.addActionListener(this::buttonCriarEventoActionPerformed);
-        this.addComponentListener(this::changed);
     }
 
     private void changed(ActionEvent evt){
