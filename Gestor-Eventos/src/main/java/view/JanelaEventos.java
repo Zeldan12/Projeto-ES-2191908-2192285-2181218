@@ -5,6 +5,8 @@ import model.Evento;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 /**
@@ -18,7 +20,7 @@ public class JanelaEventos extends JFrame{
     private JButton buttonEditarEvento;
     private JButton buttonEliminar;
     private JButton importButton;
-    private JList list1;
+    private JList listEventos;
     public JFrame voltar;
 
     public JanelaEventos(JFrame anterior){
@@ -36,6 +38,17 @@ public class JanelaEventos extends JFrame{
         buttonCriarEvento.addActionListener(this::buttonCriarEventoActionPerformed);
         buttonEditarEvento.addActionListener(this::buttonEditarEventoActionPerformed);
         buttonEliminar.addActionListener(this::buttonEliminarEventoActionPerformed);
+
+        listEventos.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
+                JList list = (JList)evt.getSource();
+                if (evt.getClickCount() == 2) {
+                    int index = list.locationToIndex(evt.getPoint());
+                    listEventos.setSelectedIndex(index);
+                    Evento e = getSelectedEvent();
+                }
+            }
+        });
     }
 
 
@@ -76,17 +89,19 @@ public class JanelaEventos extends JFrame{
         for (Evento e: DadosAplicacao.getEventos()) {
             l1.addElement(e.toString());
         }
-        list1.setModel(l1);
+        listEventos.setModel(l1);
     }
 
 
     private Evento getSelectedEvent(){
         for (Evento e : DadosAplicacao.getEventos()) {
-            if(e.toString().equals(list1.getSelectedValue().toString())){
+            if(e.toString().equals(listEventos.getSelectedValue().toString())){
                 return e;
             }
         }
         return null;
     }
+
+
 
 }

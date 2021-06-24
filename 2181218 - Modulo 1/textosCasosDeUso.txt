@@ -1,0 +1,394 @@
+----------------------------------------------------------------------------------------Criar evento
+
+Caso de uso "Criar evento:"
+------------------
+
+1. O utilizador seleciona a opção "Eventos"
+2. O sistema apresenta a janelaEventos
+3. O utilizador escolhe a opção "criar evento"
+4. O sistema apresenta ao utilizador a janela CriarEvento
+5. O utilizador preenche os dados do evento e seleciona a opção criar evento
+6. O sistema verifica os dados do evento (nome, data de inicio, data de fim, local, pais)
+7. O sistema cria o evento e é gravado.
+8. O sistema fecha a janela CriarEvento
+
+
+Caminhos Alternativos
+------------------
+
+3.1 O utilizador seleciona a opção "Voltar" da janela Eventos.
+3.1.1 O sistema fecha a janela Eventos.
+
+5.1 O utlizador seleciona a opção cancelar
+5.1.1 O sistema fecha a janela CriarEvento
+
+6.1 O sistema verifica que já existe um evento com o mesmo nome
+6.1.1 O sistema apresenta a mensagem de erro #1
+
+6.2 O sistema verifica se a data de inicio é válida
+6.2.1 O sistema apresenta a mensagem de erro #2
+
+6.3 O sistema verifica se a data de fim é válida
+6.3.1 O sistema apresenta a mensagem de erro #2
+
+6.4 O sistema verifica que o local de nascimento tem menos de 2 carateres, excluindo espaços iniciais e finais.
+6.4.1 O sistema apresenta a mensagem de erro #3
+
+
+Mensagems de Erro
+-----------------
+#1:"Já existe um evento com o nome dado"
+#2:"Data inválida. A data deve ter o formato dd/mm/aaaa"
+#3:"Local inválido. O local de nascimento deve conter pelo menos 2 carateres não-brancos"
+
+----------------------------------------------------------------------------------------Editar evento
+
+Caso de uso "Editar evento:"
+------------------
+
+1. O utilizador seleciona a opção "Eventos"
+2. O sistema apresenta a janelaEventos
+3. O utilizador seleciona um evento e escolhe a opção "Editar evento"
+4. O sistema apresenta ao utilizador a janela EditarEvento e prenche  os campos com os valores do evento a editar
+5. O utilizador preenche os dados do evento e seleciona a opção confirmar
+6. O sistema verifica os dados do evento (nome, data de inicio, data de fim, local, pais)
+7. O sistema grava as alterações
+8. O sistema fecha a janela EditarEvento
+
+
+Caminhos Alternativos
+------------------
+
+3.1 O utilizador seleciona a opção "Voltar" da janela Eventos.
+3.1.1 O sistema fecha a janela Eventos.
+
+5.1 O utlizador seleciona a opção cancelar
+5.1.1 O sistema fecha a janela EditarEvento
+
+6.1 O sistema verifica que já existe um evento com o mesmo nome
+6.1.1 O sistema apresenta a mensagem de erro #1
+
+6.2 O sistema verifica se a data de inicio é válida
+6.2.1 O sistema apresenta a mensagem de erro #2
+
+6.3 O sistema verifica se a data de fim é válida
+6.3.1 O sistema apresenta a mensagem de erro #2
+
+6.4 O sistema verifica que o local de nascimento tem menos de 2 carateres, excluindo espaços iniciais e finais.
+6.4.1 O sistema apresenta a mensagem de erro #3
+
+
+Mensagems de Erro
+-----------------
+#1:"Já existe um evento com o nome dado"
+#2:"Data inválida. A data deve ter o formato dd/mm/aaaa"
+#3:"Local inválido. O local de nascimento deve conter pelo menos 2 carateres não-brancos"
+
+----------------------------------------------------------------------------------------Eliminar evento
+
+Caso de uso "Eliminar evento:"
+------------------
+
+1. O utilizador seleciona a opção "Eventos"
+2. O sistema apresenta a janelaEventos
+3. O utilizador escolhe um evento e seleciona a opção "eliminar evento"
+4. O sistema apresenta os dados do evento a eleminar numa janela de confirmação e pergunta ao utilizador se quer confirmar o evento ser eliminado
+5. O utilizador confirma os dados e seleciona a opção eliminar
+7. O sistema elimina o evento e fecha a janela de confirmação.
+
+
+Caminhos Alternativos
+------------------
+
+3.1 O utilizador seleciona a opção "Voltar" da janela Eventos.
+3.1.1 O sistema fecha a janela Eventos.
+
+4.1 O utlizador seleciona a opção cancelar
+4.1.1 O sistema fecha a janela de confirmação
+
+----------------------------------------------------------------------------------------Criar prova
+
+Caso de uso "Criar prova:"
+------------------
+
+1. O utilizador seleciona a opção "Provas"
+2. O sistema apresenta a janela Provas
+3. O utilizador escolhe a opção "criar prova"
+4. O sistema apresenta ao utilizador a janela CriarProva
+5. O utilizador preenche os dados da prova e seleciona a opção criar prova
+6. O sistema verifica os dados da prova (dia do ano, dia de competicao, hora, prova, sexo dos atletas, ronda, minimos para acesso)
+7. O sistema cria a prova e é gravada.
+8. O sistema fecha a janela CriarProva
+
+
+Caminhos Alternativos
+------------------
+
+3.1 O utilizador seleciona a opção "Voltar" da janela Provas.
+3.1.1 O sistema fecha a janela Provas.
+
+5.1 O utlizador seleciona a opção cancelar
+5.1.1 O sistema fecha a janela CriarProva
+
+6.1 O sistema verifica se o dia do ano é válido
+6.1.1 O sistema apresenta a mensagem de erro #1
+
+6.2 O sistema verifica se o dia de competicao é válido
+6.2.1 O sistema apresenta a mensagem de erro #1
+
+6.3 O sistema verifica se a hora da prova é válida
+6.3.1 O sistema apresenta a mensagem de erro #2
+
+6.4 O sistema verifica se a prova é válida
+6.4.1 O sistema apresenta a mensagem de erro #3
+
+6.4 O sistema verifica se o sexo dos atletas é válido
+6.4.1 O sistema apresenta a mensagem de erro #4
+
+
+Mensagems de Erro
+-----------------
+#1:"Data inválida. A data deve ter o formato dd/mm/aaaa"
+#2:"Hora inválida. A hora deve ter o formato hh/mm, onde hh é um numero de 0 a 23 e mm é um numero de 0 a 59"
+#3:"Prova inválida. !!NEED TEXT HERE, MAYBE THERE IS ONLY A FEW TYPES OF PROVAS, MAYBE SEE HOW LONG THE TEXT IS!!"
+#4:"Sexo inválido. !!NEED TEXT HERE, MAYBE LIMIT TO M/F OR SOMETHING ELSE IDK!!"
+
+----------------------------------------------------------------------------------------Editar prova
+
+Caso de uso "Editar prova:"
+------------------
+
+1. O utilizador seleciona a opção "Provas"
+2. O sistema apresenta a janela Provas
+3. O utilizador escolhe a opção "Editar prova"
+4. O sistema apresenta ao utilizador a janela EditarProva e prenche  os campos com os valores do evento a editar
+5. O utilizador preenche os dados da prova e seleciona a opção confirmar
+6. O sistema verifica os dados da prova (dia do ano, dia de competicao, hora, prova, sexo dos atletas, ronda, minimos para acesso)
+7. O sistema grava as alteracoes
+8. O sistema fecha a janela EditarProva.
+
+
+Caminhos Alternativos
+------------------
+
+3.1 O utilizador seleciona a opção "Voltar" da janela Provas.
+3.1.1 O sistema fecha a janela Provas.
+
+5.1 O utlizador seleciona a opção cancelar
+5.1.1 O sistema fecha a janela EditarProva
+
+6.1 O sistema verifica se o dia do ano é válido
+6.1.1 O sistema apresenta a mensagem de erro #1
+
+6.2 O sistema verifica se o dia de competicao é válido
+6.2.1 O sistema apresenta a mensagem de erro #1
+
+6.3 O sistema verifica se a hora da prova é válida
+6.3.1 O sistema apresenta a mensagem de erro #2
+
+6.4 O sistema verifica se a prova é válida
+6.4.1 O sistema apresenta a mensagem de erro #3
+
+6.4 O sistema verifica se o sexo dos atletas é válido
+6.4.1 O sistema apresenta a mensagem de erro #4
+
+
+Mensagems de Erro
+-----------------
+#1:"Data inválida. A data deve ter o formato dd/mm/aaaa"
+#2:"Hora inválida. A hora deve ter o formato hh/mm, onde hh é um numero de 0 a 23 e mm é um numero de 0 a 59"
+#3:"Prova inválida. !!NEED TEXT HERE, MAYBE THERE IS ONLY A FEW TYPES OF PROVAS, MAYBE SEE HOW LONG THE TEXT IS!!"
+#4:"Sexo inválido. !!NEED TEXT HERE, MAYBE LIMIT TO M/F OR SOMETHING ELSE IDK!!"
+
+----------------------------------------------------------------------------------------Eliminar prova
+
+Caso de uso "Eliminar prova:"
+------------------
+
+1. O utilizador seleciona a opção "Provas"
+2. O sistema apresenta a janelaProvas
+3. O utilizador escolhe um evento e seleciona a opção "eliminar prova"
+4. O sistema apresenta os dados da prova a eleminar numa janela de confirmação e pergunta ao utilizador se quer confirmar a prova ser eliminada
+5. O utilizador confirma os dados e seleciona a opção eliminar
+7. O sistema elimina a prova e fecha a janela de confirmação.
+
+
+Caminhos Alternativos
+------------------
+
+3.1 O utilizador seleciona a opção "Voltar" da janela Provas.
+3.1.1 O sistema fecha a janela Provas.
+
+4.1 O utlizador seleciona a opção cancelar
+4.1.1 O sistema fecha a janela de confirmação
+
+----------------------------------------------------------------------------------------Adicionar prova ao programa do evento
+
+Caso de uso "Adicionar prova ao programa do evento:"
+------------------
+
+1. O utilizador seleciona a opção "Eventos"
+2. O sistema apresenta a janelaEventos
+3. O utilizador escolhe um evento e seleciona a opção "adicionar prova"
+4. O sistema apresenta uma lista de provas disponiveis
+5. O utilizador seleciona a prova que quer adicionar.
+6. O sistema apresenta uma janela de confirmação com os dados da prova
+7. O utilizador seleciona a opção adicionar.
+8. O sistema adiciona a prova ao evento e fecha a janela de confirmação.
+
+
+Caminhos Alternativos
+------------------
+
+3.1 O utilizador seleciona a opção "Voltar" da janelaEventos.
+3.1.1 O sistema fecha a janelaEventos.
+
+4.1 O utlizador seleciona a opção cancelar
+4.1.1 O sistema fecha a janela de confirmação
+
+----------------------------------------------------------------------------------------Remover prova do programa do evento
+
+Caso de uso "Remover prova do programa do evento:"
+------------------
+
+1. O utilizador seleciona a opção "Eventos"
+2. O sistema apresenta a janelaEventos
+3. O utilizador escolhe um evento e seleciona a opção "remover prova"
+4. O sistema apresenta uma lista de provas disponiveis
+5. O utilizador seleciona a prova que quer remover.
+6. O sistema apresenta uma janela de confirmação com os dados da prova
+7. O utilizador seleciona a opção remover.
+8. O sistema adiciona a prova ao evento e fecha a janela de confirmação.
+
+
+Caminhos Alternativos
+------------------
+
+3.1 O utilizador seleciona a opção "Voltar" da janelaEventos.
+3.1.1 O sistema fecha a janelaEventos.
+
+4.1 O utlizador seleciona a opção cancelar
+4.1.1 O sistema fecha a janela de confirmação
+
+----------------------------------------------------------------------------------------Apresentar programa do evento
+
+Caso de uso "Apresentar programa do evento:"
+------------------
+
+1. O utilizador seleciona a opção "Eventos"
+2. O sistema apresenta a janelaEventos
+3. O utilizador escolhe um evento e seleciona a opção "detalhes"
+4. O sistema apresenta uma janela com todos os detalhes do evento incluindo o programa do evento
+5. O utilizador vê o programa
+6. O utilizador fecha a janelaDetalhesEvento
+
+
+Caminhos Alternativos
+------------------
+
+3.1 O utilizador seleciona a opção "Voltar" da janelaEventos.
+3.1.1 O sistema fecha a janelaEventos.
+
+----------------------------------------------------------------------------------------Importar dados de eventos de um ficheiro
+
+Caso de uso "Importar dados de eventos de um ficheiro:"
+------------------
+
+1. O utilizador seleciona a opção "Eventos"
+2. O sistema apresenta a janela Eventos
+3. O utilizador escolhe a opção "Importar Evento"
+4. O sistema apresenta uma janela para o utilizador escolher de que ficheiro vai importar os dados
+5. O utilizador escolhe um ficheiro e clica confirmar
+6. O sistema abre o ficheiro e faz o parse do ficheiro e grava o evento
+7. O sistema apresenta uma janela de confirmação a dizer que foi importado com sucesso
+8. O sistema fecha a janela de confirmação.
+
+
+Caminhos Alternativos
+------------------
+
+3.1 O utilizador seleciona a opção "Voltar" da janela Eventos.
+3.1.1 O sistema fecha a janela Eventos.
+
+5.1 O utlizador seleciona a opção cancelar
+5.1.1 O sistema fecha a janela de selecionar o ficheiro
+
+6.1 O sistema não consegue fazer o parse do ficheiro
+6.1.1 O sistema apresenta a mensagem de erro #1
+
+Mensagems de Erro
+-----------------
+#1: O ficheiro selecionado não é válido
+
+----------------------------------------------------------------------------------------Importar dados de provas  de um ficheiro
+
+Caso de uso "Importar dados de provas  de um ficheiro:"
+------------------
+
+1. O utilizador seleciona a opção "Provas"
+2. O sistema apresenta a janela Provas
+3. O utilizador escolhe a opção "Importar Prova"
+4. O sistema apresenta uma janela para o utilizador escolher de que ficheiro vai importar os dados
+5. O utilizador escolhe um ficheiro e clica confirmar
+6. O sistema abre o ficheiro e faz o parse do ficheiro e grava a prova
+7. O sistema apresenta uma janela de confirmação a dizer que foi importado com sucesso
+8. O sistema fecha a janela de confirmação.
+
+
+Caminhos Alternativos
+------------------
+
+3.1 O utilizador seleciona a opção "Voltar" da janela Provas.
+3.1.1 O sistema fecha a janela Provas.
+
+5.1 O utlizador seleciona a opção cancelar
+5.1.1 O sistema fecha a janela de selecionar o ficheiro
+
+6.1 O sistema não consegue fazer o parse do ficheiro
+6.1.1 O sistema apresenta a mensagem de erro #1
+
+Mensagems de Erro
+-----------------
+#1: O ficheiro selecionado não é válido
+
+----------------------------------------------------------------------------------------Listar os países mais medalhados
+
+Caso de uso "Listar os países mais medalhados:"
+------------------
+
+1. O utilizador seleciona a opção "Records"
+2. O sistema apresenta a janela Records
+3. O utilizador escolhe a opção "Medalhas paises"
+4. O sistema apresenta a janela medalhasPaises
+5. O utilizador ve uma lista de paises e suas medalhas ordenado por quem tem mais medalhas
+
+
+Caminhos Alternativos
+------------------
+
+3.1 O utilizador seleciona a opção "Voltar" da janela Provas.
+3.1.1 O sistema fecha a janela Provas.
+
+5.1 O utlizador fecha a janela medalhasPaises
+
+----------------------------------------------------------------------------------------Listar os países mais medalhados na edição (evento) atual
+
+Caso de uso "Listar os países mais medalhados na edição (evento) atual:"
+------------------
+
+1. O utilizador seleciona a opção "Records"
+2. O sistema apresenta a janela Records
+3. O utilizador escolhe a opção "Medalhas paises"
+4. O sistema apresenta a janela medalhasPaises
+5. O utilizador aplica um filtro por evento, escolhendo o evento que quer ver, num drop down menu
+6. O sistema atualiza a informação das medalhas para aparecerem só as do evento selecionado
+7. O utilizador ve uma lista de paises e suas medalhas ordenado por quem tem mais medalhas
+
+
+Caminhos Alternativos
+------------------
+
+3.1 O utilizador seleciona a opção "Voltar" da janela Provas.
+3.1.1 O sistema fecha a janela Provas.
+
+5.1 O utlizador fecha a janela medalhasPaises
