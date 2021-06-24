@@ -24,7 +24,7 @@ public class JanelaEventos extends JFrame{
     private JButton buttonEliminar;
     private JButton importButton;
     private JList list1;
-    private JFrame voltar;
+    public JFrame voltar;
 
     public JanelaEventos(JFrame anterior){
         super("Eventos");
@@ -41,15 +41,13 @@ public class JanelaEventos extends JFrame{
         buttonCriarEvento.addActionListener(this::buttonCriarEventoActionPerformed);
     }
 
-    private void buttonVoltarActionPerformed(ActionEvent evt){
+    public void buttonVoltarActionPerformed(ActionEvent evt){
         this.dispose();
         voltar.setVisible(true);
-        updateList();
     }
     private void buttonCriarEventoActionPerformed(ActionEvent evt){
         this.setVisible(false);
         new JanelaCriarEvento(this).setVisible(true);
-        updateList();
     }
 
     private void updateList(){
@@ -59,4 +57,6 @@ public class JanelaEventos extends JFrame{
         }
         list1.setModel(l1);
     }
+
+
 }

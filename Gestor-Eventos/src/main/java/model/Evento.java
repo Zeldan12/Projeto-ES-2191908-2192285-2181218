@@ -50,6 +50,6 @@ public class Evento {
 
     @Override
     public String toString() {
-        return nome + '{' + dataInicio +" -> " + dataFim + "}  @" + local + ",   " + pais;
+        return nome + '{' + dataInicio +" -> " + dataFim + "}  @" + local + ", " + pais;
     }
 }

@@ -25,9 +25,9 @@ public class JanelaCriarEvento extends JFrame{
     private JTextField textFieldDataFim;
     private JTextField textFieldLocal;
     private JPanel content;
-    private JFrame voltar;
+    private JanelaEventos voltar;
 
-    public JanelaCriarEvento(JFrame anterior){
+    public JanelaCriarEvento(JanelaEventos anterior){
         super("Eventos");
 
         voltar = anterior;
@@ -56,7 +56,8 @@ public class JanelaCriarEvento extends JFrame{
         }catch(Exception e){
             ErrorMessage.show("Error", e.getMessage());
         }
-        buttonCancelarActionPerformed(event);
+        this.dispose();
+        voltar.buttonVoltarActionPerformed(event);
     }
 
     private void buttonCancelarActionPerformed(ActionEvent event) {
