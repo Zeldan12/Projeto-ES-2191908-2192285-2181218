@@ -38,7 +38,7 @@ public class JanelaEventos extends JFrame{
         buttonCriarEvento.addActionListener(this::buttonCriarEventoActionPerformed);
         buttonEditarEvento.addActionListener(this::buttonEditarEventoActionPerformed);
         buttonEliminar.addActionListener(this::buttonEliminarEventoActionPerformed);
-
+        JanelaEventos temp = this;
         listEventos.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
                 JList list = (JList)evt.getSource();
@@ -46,6 +46,8 @@ public class JanelaEventos extends JFrame{
                     int index = list.locationToIndex(evt.getPoint());
                     listEventos.setSelectedIndex(index);
                     Evento e = getSelectedEvent();
+                    temp.setVisible(false);
+                    new JanelaDetalhesEvento(temp, e).setVisible(true);
                 }
             }
         });

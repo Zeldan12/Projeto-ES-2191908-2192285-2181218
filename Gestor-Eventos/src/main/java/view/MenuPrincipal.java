@@ -3,7 +3,6 @@ package view;
 import model.DadosAplicacao;
 import model.Evento;
 import model.Prova;
-import model.Singleton;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -44,7 +43,7 @@ public class MenuPrincipal extends JFrame{
     private void buttonProvasActionPerformed(ActionEvent evt){
         this.setVisible(false);
         LinkedList<Prova> provas = new LinkedList<>();
-        for(Evento e : Singleton.getInstance().dadosAplicacao.getEventos()){
+        for(Evento e : DadosAplicacao.getEventos()){
             for(Prova p : e.getProvas()){
                 provas.add(p);
             }
